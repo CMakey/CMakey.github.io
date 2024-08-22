@@ -19,23 +19,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="世界坐标系和相机坐标系之间的关系 [!note]- GPT 解释相机坐标系和世界坐标系理解相机坐标系统和世界坐标系统中点之间的关系，特别是在用于相机校准的校准板的背景下，涉及对相机外部参数（旋转和平移）的清晰理解。这里，我将解释这些参数如何与从世界坐标系统（校准板坐标定义的地方）转换到相机坐标系统相关联。 基本概念     世界坐标系统：这是一个固定的坐标系统，物体（校准板）位于其中。对于国际">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2024/08/21/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A_%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="世界坐标系和相机坐标系之间的关系 [!note]- GPT 解释相机坐标系和世界坐标系理解相机坐标系统和世界坐标系统中点之间的关系，特别是在用于相机校准的校准板的背景下，涉及对相机外部参数（旋转和平移）的清晰理解。这里，我将解释这些参数如何与从世界坐标系统（校准板坐标定义的地方）转换到相机坐标系统相关联。 基本概念     世界坐标系统：这是一个固定的坐标系统，物体（校准板）位于其中。对于国际">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cyk-zotero.oss-cn-beijing.aliyuncs.com/img/202408221217479.png">
+<meta property="og:image" content="https://cyk-zotero.oss-cn-beijing.aliyuncs.com/img/202408221212138.png">
+<meta property="article:published_time" content="2024-08-21T10:45:11.000Z">
+<meta property="article:modified_time" content="2024-08-22T06:45:17.831Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="#论文">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cyk-zotero.oss-cn-beijing.aliyuncs.com/img/202408221217479.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/08/21/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A_%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/08/21/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A_%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB/","path":"2024/08/21/相机标定_相机坐标系与世界坐标系/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
+<title> | Hexo</title>
   
 
 
@@ -65,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <p class="site-title">Hexo</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -87,7 +95,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -100,6 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">场景设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-D-%E4%BD%8D%E7%BD%AE%E7%9A%84%E9%87%8D%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">3 D 位置的重建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B9%B3%E7%A7%BB%E5%90%91%E9%87%8F"><span class="nav-number">3.1.</span> <span class="nav-text">1. 平移向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5"><span class="nav-number">3.2.</span> <span class="nav-text">2. 旋转矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%98%E6%8D%A2%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">3. 变换点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E8%AE%A1%E7%AE%97"><span class="nav-number">4.</span> <span class="nav-text">示例计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E5%8E%9A%E5%BA%A6"><span class="nav-number">6.</span> <span class="nav-text">世界坐标系与相机坐标系中的厚度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%95%E5%BD%B1%E5%88%B0%E5%9B%BE%E5%83%8F%E5%B9%B3%E9%9D%A2"><span class="nav-number">7.</span> <span class="nav-text">投影到图像平面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%A6%E8%B7%9D%EF%BC%88-f-%EF%BC%89"><span class="nav-number">9.</span> <span class="nav-text">焦距（( f )）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%B9%B3%E9%9D%A2%E5%92%8C-Z-c"><span class="nav-number">10.</span> <span class="nav-text">图像平面和 ( Z_c )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f-%E8%83%BD%E7%94%A8%E4%BD%9C-Z-c-%E5%90%97%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">( f ) 能用作 ( Z_c ) 吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">12.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number"></span> <span class="nav-text">参考链接</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -133,16 +142,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/21/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A_%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -156,13 +166,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content=" | Hexo">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/21/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A_%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8E%E4%B8%96%E7%95%8C%E5%9D%90%E6%A0%87%E7%B3%BB/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -191,8 +201,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <ul>
+    <div class="post-body" itemprop="articleBody"><ul>
 <li><input disabled="" type="checkbox"> 世界坐标系和相机坐标系之间的关系<blockquote>
 <p>[!note]- GPT 解释相机坐标系和世界坐标系<br>理解相机坐标系统和世界坐标系统中点之间的关系，特别是在用于相机校准的校准板的背景下，涉及对相机外部参数（旋转和平移）的清晰理解。这里，我将解释这些参数如何与从世界坐标系统（校准板坐标定义的地方）转换到相机坐标系统相关联。</p>
 <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3></blockquote>
@@ -299,7 +308,6 @@
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xA4m157Wq/?spm_id_from=333.337.search-card.all.click&vd_source=62b9df939b7beef9529669eda4636e18">通俗易懂：带你探索相机成像模型的奥秘！【重制版】_哔哩哔哩_bilibili</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1C54y1B7By/?spm_id_from=333.337.search-card.all.click&vd_source=62b9df939b7beef9529669eda4636e18">三维重建第三课：相机标定原理步骤(一）坐标系变换_哔哩哔哩_bilibili</a><br>提到了旋转矩阵 R 在世界坐标系和相机坐标系的变换过程中，使用左乘还是右乘不一样的区别。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128155013">旋转的左乘与右乘</a><br>相关的知乎链接</p>
 
-      
     </div>
 
     
@@ -307,206 +315,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># #论文</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/21/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/21/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/21/hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-08-21 18:33:32 / Modified: 18:43:51" itemprop="dateCreated datePublished" datetime="2024-08-21T18:33:32+08:00">2024-08-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用 ssh 工具测试链接的时候发现被 github 拒绝。<br>可以将生成的 ssh 密钥使用命令行添加到当前的环境中</p>
-<p>Given that you’ve successfully connected to GitHub via SSH in the past, but are currently facing an issue with the SSH key fingerprint mismatch, it might be helpful to consider a few additional checks and remedies:</p>
-<h3 id="1-Verify-SSH-Key-is-Correctly-Added-to-GitHub"><a href="#1-Verify-SSH-Key-is-Correctly-Added-to-GitHub" class="headerlink" title="1. Verify SSH Key is Correctly Added to GitHub:"></a>1. <strong>Verify SSH Key is Correctly Added to GitHub:</strong></h3><p>Ensure that the SSH key (<code>id_rsa.pub</code>) you generated is correctly added to your GitHub account. You can check this by going to your GitHub settings under SSH and GPG keys to see if the key is listed. If it’s not there or needs to be updated, add your new SSH public key:</p>
-<ul>
-<li><p>Copy the SSH key from your terminal:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Go to GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key, paste your key into the field, and save it.</p>
-</li>
-</ul>
-<h3 id="2-Check-SSH-Key-Agent"><a href="#2-Check-SSH-Key-Agent" class="headerlink" title="2. Check SSH Key Agent:"></a>2. <strong>Check SSH Key Agent:</strong></h3><p>Sometimes, the SSH key might not be added to your SSH agent, or multiple keys could be causing conflicts:</p>
-<ul>
-<li><p>Start the SSH agent in the background:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add your SSH private key to the SSH agent:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa <span class="comment">#这个地方可以使用之前创建ssh密钥的绝对路径</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>If you have multiple keys and want to ensure the correct one is used, you can create a config file (<code>~/.ssh/config</code>) to specify which key to use for GitHub:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Hostname github.com</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="3-Check-SSH-Key-Permissions"><a href="#3-Check-SSH-Key-Permissions" class="headerlink" title="3. Check SSH Key Permissions:"></a>3. <strong>Check SSH Key Permissions:</strong></h3><p>Ensure your SSH key files have the correct permissions set. Sometimes incorrect permissions can cause authentication issues:</p>
-<ul>
-<li>Set the correct permissions:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 400 ~/.ssh/id_rsa</span><br><span class="line"><span class="built_in">chmod</span> 400 ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="4-Re-test-the-Connection"><a href="#4-Re-test-the-Connection" class="headerlink" title="4. Re-test the Connection:"></a>4. <strong>Re-test the Connection:</strong></h3><p>After ensuring that the key is added to your GitHub account and your SSH agent is configured properly, re-test the connection:</p>
-<ul>
-<li>Test your SSH connection to GitHub:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>If this returns a successful authentication message again, then your SSH setup is correct.</p>
-<h3 id="5-Retry-the-Push"><a href="#5-Retry-the-Push" class="headerlink" title="5. Retry the Push:"></a>5. <strong>Retry the Push:</strong></h3><p>Once you’ve confirmed that the SSH connection to GitHub is working without any issues, retry the force push command in your <code>.deploy_git</code> repository. Make sure you’re in the correct directory and your remote URL is set to use SSH:</p>
-<ul>
-<li><p>Verify remote URL:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>If the remote URL is not using SSH, set it:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:CMakey/CMakey.io.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Retry the force push:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="6-Check-Network-and-Firewall-Settings"><a href="#6-Check-Network-and-Firewall-Settings" class="headerlink" title="6. Check Network and Firewall Settings:"></a>6. <strong>Check Network and Firewall Settings:</strong></h3><p>If the problem persists, check your network settings, firewall, or security software that might be blocking SSH connections.</p>
-<p>By following these steps, you should be able to diagnose and resolve the issue with connecting to GitHub via SSH, especially considering that it worked previously. These checks will ensure that your SSH configuration remains secure and functional.</p>
-<p>–FROM GPT</p>
-<p>后记：<br>如果推送到 github 后发现无法打开网址，是 github 还没部署万，可以等几分钟再尝试打开。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-08-21 16:50:33" itemprop="dateCreated datePublished" datetime="2024-08-21T16:50:33+08:00">2024-08-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
